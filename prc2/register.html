@@ -64,12 +64,29 @@ function saveData() {
     return;
   }
 
-  user_records.push({ name: name, email: email, psw: psw });
+  const newUser = { name, email, psw };
+  user_records.push(newUser);
   localStorage.setItem("users", JSON.stringify(user_records));
 
-  alert("Registration successful! Redirecting to login.");
-  window.location.href = "login.html";
+  // Send user to mock API
+  fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newUser)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log("User saved to mock server:", data);
+    alert("Registration successful! Redirecting to login.");
+    window.location.href = "login.html";
+  })
+  .catch(error => {
+    console.error("Failed to send user data:", error);
+    alert("Registered locally, but failed to sync with server.");
+    window.location.href = "login.html";
+  });
 }
+
 </script>
 
 </body>
