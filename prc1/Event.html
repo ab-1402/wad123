@@ -1,57 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-    <style>
-        img {
-            width: 100%;
-            height: auto;
-        }
-    </style>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Events - AVCOE IT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="bg-success text-white text-center py-4">
+      <h1>Amrutvahini College of Engineering, Sangamner</h1>
+      <h4>Department of Information Technology</h4>
+    </div>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-        <div class="container">
-          <a class="navbar-brand fw-bold" href="#">AVCOE</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-  
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Event.html">Events</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    <div class="card" style="width: 18rem;">
-        <img src="1fe7870063d2aa85cea42187e71fadc0.jpeg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">AVCOE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="event.html">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+          </ul>
         </div>
       </div>
-</body>
+    </nav>
+
+    <div class="container my-4">
+      <h3 class="text-success mb-4">Department Events</h3>
+      <div class="row">
+
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm">
+            <img src="your-image1.jpg" class="card-img-top" alt="Event 1" />
+            <div class="card-body">
+              <h5 class="card-title">Tech Fest 2024</h5>
+              <p class="card-text">A grand technical festival showcasing innovation and creativity by IT students.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm">
+            <img src="your-image2.jpg" class="card-img-top" alt="Event 2" />
+            <div class="card-body">
+              <h5 class="card-title">Industrial Visit</h5>
+              <p class="card-text">Students visited leading IT firms to gain insights into industry practices.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm">
+            <img src="your-image3.jpg" class="card-img-top" alt="Event 3" />
+            <div class="card-body">
+              <h5 class="card-title">Alumni Talk</h5>
+              <p class="card-text">Successful alumni shared their career journey and industry tips with current students.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-success text-white text-center py-3 mt-auto">
+      <p class="mb-0">All rights reserved © AVCOE.org 2022-23</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
