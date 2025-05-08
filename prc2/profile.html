@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container" style="max-width: 600px; margin-top: 50px;">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">User Profile
+                <button onclick="Logout();" class="btn btn-danger btn-sm pull-right">Logout</button>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <h4>Welcome, <span id="userName"></span>!</h4>
+            <p><strong>Email:</strong> <span id="userEmail"></span></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const name = localStorage.getItem('name') || '';
+    const email = localStorage.getItem('email') || '';
+
+    if (name === '' || email === '') {
+        alert('You need to login first.');
+        window.location.href = "login.html";
+    } else {
+        document.getElementById("userName").textContent = name;
+        document.getElementById("userEmail").textContent = email;
+    }
+
+    function Logout() {
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
+        window.location.href = "login.html";
+    }
+</script>
+
+</body>
+</html>

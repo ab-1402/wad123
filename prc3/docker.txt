@@ -1,0 +1,15 @@
+sudo usermod -aG docker ${USER}                     # Add current user to the docker group
+su - ${USER}                                        # Refresh user session
+groups                                              # Check groups the user belongs to
+sudo usermod -aG docker avcoe                       # Add 'avcoe' user to the docker group
+docker -v                                           # Check Docker version
+docker pull hello-world                             # Pull the hello-world image
+docker pull openjdk                                 # Pull the OpenJDK image
+docker pull python                                  # Pull the Python image
+docker images                                       # List downloaded Docker images
+docker run hello-world                             # Run hello-world container
+docker run openjdk                                 # Start OpenJDK interactive shell (JShell)
+docker run --name JDK -it -d openjdk               # Run OpenJDK container in detached mode with a name
+docker exec -it bd19bbfd24c0 jshell                # Enter JShell in running OpenJDK container
+docker ps                          # List running containers
+docker ps -a                       # List all containers (including exited)

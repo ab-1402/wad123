@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login Form Using Local Storage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    .login-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-card {
+      width: 100%;
+      max-width: 400px;
+      padding: 30px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container login-container">
+  <div class="panel panel-default login-card">
+    <div class="panel-heading text-center"><h3>Login</h3></div>
+    <div class="panel-body">
+      <form>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="psw">Password:</label>
+          <input type="password" class="form-control" id="psw" placeholder="Enter password" name="pwd" required>
+        </div>
+        <button type="button" onclick="saveData()" class="btn btn-primary btn-block">Login</button>
+        <p class="text-center" style="margin-top:10px;">Don't have an account? <a href="register.html">Register here</a></p>
+        <p class="text-center"><a href="display_users.html">View All Users</a></p>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  let name = localStorage.getItem('name') ? localStorage.getItem('name') : '';
+  if (name != '') {
+    alert('Already logged in. Redirecting to profile...');
+    window.location.href = "profile.html";
+  }
+
+  function saveData() {
+    
+    let email = document.getElementById("email").value;
+    let psw = document.getElementById("psw").value;
+
+    let user_records = JSON.parse(localStorage.getItem("users")) || [];
+
+    if (!email || !psw) {
+    alert("Please fill all fields.");
+    return;
+  }
+
+    if (user_records.some((v) => v.email === email && v.psw === psw)) {
+      alert("Login successful!");
+      let current_user = user_records.find((v) => v.email === email && v.psw === psw);
+      localStorage.setItem('name', current_user.name);
+      localStorage.setItem('email', current_user.email);
+      window.location.href = "profile.html";
+    } else {
+      alert('User not registered. Redirecting to registration...');
+      window.location.href = "register.html";
+    }
+  }
+</script>
+
+</body>
+</html>
