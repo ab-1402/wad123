@@ -40,7 +40,6 @@
         <button type="button" onclick="saveData()" class="btn btn-primary btn-block">Login</button>
         <p class="text-center" style="margin-top:10px;">Don't have an account? <a href="register.html">Register here</a></p>
         <p class="text-center"><a href="display_users.html">View All Users</a></p>
-
       </form>
     </div>
   </div>
@@ -54,22 +53,34 @@
   }
 
   function saveData() {
-    
     let email = document.getElementById("email").value;
     let psw = document.getElementById("psw").value;
 
     let user_records = JSON.parse(localStorage.getItem("users")) || [];
 
     if (!email || !psw) {
-    alert("Please fill all fields.");
-    return;
-  }
+      alert("Please fill all fields.");
+      return;
+    }
 
     if (user_records.some((v) => v.email === email && v.psw === psw)) {
       alert("Login successful!");
       let current_user = user_records.find((v) => v.email === email && v.psw === psw);
       localStorage.setItem('name', current_user.name);
       localStorage.setItem('email', current_user.email);
+
+      // Fake AJAX POST using fetch
+      fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        body: JSON.stringify({
+          name: current_user.name,
+          email: current_user.email,
+          message: "User logged in"
+        }),
+        headers: { "Content-Type": "application/json" }
+      })
+      
+
       window.location.href = "profile.html";
     } else {
       alert('User not registered. Redirecting to registration...');
